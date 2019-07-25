@@ -16,7 +16,7 @@
 * wordcloud
 * json
 ## 详细流程
-1. 酷狗专辑接口 <http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50> 获取周杰伦专辑信息；因为周董在酷狗处显示专辑数位32，所以请求一次就可以了。并且会返回 json 文件。由于数据量较小这里直接使用 json 序列化文件保存起来。
+1. 酷狗专辑接口 <http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50> 获取周杰伦专辑信息；因为周董在酷狗处显示专辑数为32，所以请求一次就可以了。并且会返回 json 文件。由于数据量较小这里直接使用 json 序列化文件保存起来。
 
             # 请求酷狗专辑信息接口 
             url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50' # 因为酷狗周总专辑列表 32 个，所以一次请求就可以获取完毕
