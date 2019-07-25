@@ -16,10 +16,14 @@
 * jieba
 * wordcloud
 * json
+## 详细流程
+1. 获取酷狗专辑页面 
+
+
 ## 文件说明
 ### 数据抓取文件：albumlist.json、lyriclist.json、zjl.text
 * albumlist.json 从酷狗音乐获取的周杰伦专辑信息；
-* lyriclist.josn 对专辑内歌曲分类后，获得的各歌曲歌词列表；
+* lyriclist.json 对专辑内歌曲分类后，获得的各歌曲歌词列表；
 * zjl.text 将所有歌词汇总写入文本文件中。
 * jieba2.txt 和 stop2.txt 使用结巴分词时需要的文件。jieba2.txt 内的词汇可以帮助结巴认识新的词汇，stop2.txt 中的词汇可以使结巴忽略一些词语。
 ### 代码文件
