@@ -16,7 +16,7 @@
 * wordcloud
 * json
 ## 详细流程
-1. 酷狗专辑接口 <http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50> 获取周杰伦专辑信息；因为周董在酷狗处显示专辑数为32，所以请求一次就可以了。并且会返回 json 文件。由于数据量较小这里直接使用 json 序列化文件保存起来。
+1. 酷狗专辑接口 <http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50> 中使用 requests 获取周杰伦专辑信息；因为周董在酷狗处显示专辑数为32，所以请求一次就可以了。并且会返回 json 文件。由于数据量较小这里直接使用 json 序列化文件保存起来。
 
             # 请求酷狗专辑信息接口 
             url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50' # 因为酷狗周总专辑列表 32 个，所以一次请求就可以获取完毕
@@ -26,7 +26,7 @@
             with open(r'C:\Users\yc\Desktop\zhoujl\albumlist.json', 'w', encoding='utf8') as f:
                 json.dump(r.json(),f)
                 
-2. 通过获取的专辑 id（这里要注意是有的专辑为演唱会的专辑歌曲，会与其他非演唱会的专辑重复，所以我们需要去除演唱会专辑的影响）。获取歌曲 id，最终获取歌曲歌词。最后同样使用 json 序列化保存。
+2. 通过获取的专辑 id（这里要注意是有的专辑为演唱会的专辑歌曲，会与其他非演唱会的专辑重复，所以我们需要去除演唱会专辑的影响）。获取歌曲 id，接口为'http://www.kuwo.cn/album_detail/' + str(albumid)；最终获取歌曲歌词，接口 'http://m.kuwo.cn/newh5/singles/songinfoandlrc?musicId=' + str(song) 。最后同样使用 json 序列化保存。
 
             # 第二步 歌曲信息，储存歌词(去除演唱会周总唱歌的重复曲目, 剩189首歌曲)
             from bs4 import BeautifulSoup
@@ -87,6 +87,7 @@
                         a+=(line['lineLyric'] + '。') # 拼截歌词
                     else:
                         break
+                # 以每一首歌为单位进行分词
                 seg_list = jieba.cut(a, cut_all=False)
                 for s in seg_list:  # 精确模式
                     az2[s] = az2.get(s,0)+ 1
