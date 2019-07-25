@@ -24,6 +24,24 @@
 * jieba2.txt 和 stop2.txt 使用结巴分词时需要的文件。jieba2.txt 内的词汇可以帮助结巴认识新的词汇，stop2.txt 中的词汇可以使结巴忽略一些词语。
 ### 代码文件
 * zhoujl.ipynb 和 zhoujl.py zhoujl.py 是从 zhoujl.ipynb 中转的。所以这两个文件内容是一样的。
+
+      # 结巴分词
+      # 这是使用分词后的权重绘制词云，或者使用分词后的文本绘制,弹幕词云
+      import jieba.analyse
+      #显示图形，jupyter notebook 中使用
+      %matplotlib inline 
+
+      # 数据生成---------------------------
+      jieba.load_userdict(r'C:\Users\yc\Desktop\jieba2.txt') # 导入结巴中没有的词语
+      jieba.analyse.set_stop_words(r'C:\Users\yc\Desktop\stop2.txt')  # 导入让结巴忽略的词语
+      with open(r'C:\Users\yc\Desktop\zhoujl\zjl.text', 'rb' ) as f: 
+          sentence = f.read()
+      a = jieba.analyse.extract_tags(sentence, topK=300, withWeight=True, allowPOS=()) # 分词，返回频率最高的前300个词语。
+      print(a)
+      print(len(a))
+
+
+
 ### 图片文件
 * z.png 使用词云绘图传入的模板图；
 * wordcloud.png 使用词云绘制的图片；
