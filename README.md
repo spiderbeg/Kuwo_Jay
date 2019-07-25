@@ -24,6 +24,10 @@
 * jieba2.txt 和 stop2.txt 使用结巴分词时需要的文件。jieba2.txt 内的词汇可以帮助结巴认识新的词汇，stop2.txt 中的词汇可以使结巴忽略一些词语。
 ### 代码文件
 * zhoujl.ipynb 和 zhoujl.py zhoujl.py 是从 zhoujl.ipynb 中转的。所以这两个文件内容是一样的。
+### 图片文件
+* z.png 使用词云绘图传入的模板图；
+* wordcloud.png 使用词云绘制的图片；
+* rank.py 前10高频词柱状图。
 ## 图片效果展示
 * 高频词柱状图
 ![publish](rank.png)<br>
