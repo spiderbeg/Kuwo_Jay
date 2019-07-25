@@ -26,7 +26,7 @@
             with open(r'C:\Users\yc\Desktop\zhoujl\albumlist.json', 'w', encoding='utf8') as f:
                 json.dump(r.json(),f)
                 
-2.通过获取的专辑 id（这里要注意是有的专辑为演唱会的专辑歌曲，会与其他非演唱会的专辑重复，所以我们需要去除演唱会专辑的影响）。获取歌曲 id，最终获取歌曲歌词。最后同样使用 json 序列化保存。
+2. 通过获取的专辑 id（这里要注意是有的专辑为演唱会的专辑歌曲，会与其他非演唱会的专辑重复，所以我们需要去除演唱会专辑的影响）。获取歌曲 id，最终获取歌曲歌词。最后同样使用 json 序列化保存。
 
             # 第二步 歌曲信息，储存歌词(去除演唱会周总唱歌的重复曲目, 剩189首歌曲)
             from bs4 import BeautifulSoup
