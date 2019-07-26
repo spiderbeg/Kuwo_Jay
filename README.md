@@ -1,8 +1,8 @@
-# 酷狗音乐周杰伦专辑歌曲歌词分析
+# 酷我音乐周杰伦专辑歌曲歌词分析
 ## 项目内容
-* 抓取酷狗音乐周杰伦专辑歌曲，获得周杰伦歌曲歌词。通过对歌词分词、使用词云制作周董歌词词云。
+* 抓取酷我音乐周杰伦专辑歌曲，获得周杰伦歌曲歌词。通过对歌词分词、使用词云制作周董歌词词云。
 ## 项目思路
-1. 分析酷狗音乐网页页面，依次获取周杰伦专辑名、歌曲、最终获得歌词；
+1. 分析酷我音乐网页页面，依次获取周杰伦专辑名、歌曲、最终获得歌词；
 2. 使用 requests 请求数据，由于本次爬取量较小，使用 json 序列化保存获取的数据；
 3. 使用 jieba 对周董歌词进行分词；matplotlib 对词频前 10 的词语用柱状图表示，对词频前 300 的词制作词云。
 ## 运行环境
@@ -16,10 +16,10 @@
 * wordcloud
 * json
 ## 详细流程
-1. 酷狗专辑接口 <http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50> 中使用 requests 获取周杰伦专辑信息；因为周董在酷狗处显示专辑数为32，所以请求一次就可以了。并且会返回 json 文件。由于数据量较小这里直接使用 json 序列化文件保存起来。
+1. 酷我专辑接口 <http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50> 中使用 requests 获取周杰伦专辑信息；因为周董在酷我处显示专辑数为32，所以请求一次就可以了。并且会返回 json 文件。由于数据量较小这里直接使用 json 序列化文件保存起来。
 
-            # 请求酷狗专辑信息接口 
-            url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50' # 因为酷狗周总专辑列表 32 个，所以一次请求就可以获取完毕
+            # 请求酷我专辑信息接口 
+            url = 'http://www.kuwo.cn/api/www/artist/artistAlbum?artistid=336&pn=1&rn=50' # 因为酷我周总专辑列表 32 个，所以一次请求就可以获取完毕
             r = requests.get(url, headers=headers)
             r.json() # requests 内置的 json 解码器
             # 使用 json 序列化
